@@ -28,4 +28,3 @@ export default function StopWatchButton({ onStartStopClick, onLapClick, onResetC
         </div>
     );
 }
-

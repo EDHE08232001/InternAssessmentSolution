@@ -3,17 +3,18 @@ import StopWatchButton from './StopWatchButton';
 import './styles/StopWatchStyles.css';
 
 /**
- * Stopwatch component that tracks time in milliseconds and records laps.
+ * Stopwatch component that tracks time in milliseconds, displays it,
+ * and records laps.
  */
 export default function StopWatch() {
-    // State variables to track time, running status, and laps
+    // State variables to track time, running status, and lap records
     const [milliseconds, setMilliseconds] = useState(0);
     const [running, setRunning] = useState(false);
     const [laps, setLaps] = useState<string[]>([]);
 
     /**
-     * Sets up an interval to update the time every 10 milliseconds
-     * when the stopwatch is running.
+     * Sets up and clears an interval for the stopwatch functionality.
+     * The interval updates the time every 10 milliseconds when the stopwatch is running.
      */
     useEffect(() => {
         let interval: ReturnType<typeof setInterval> | null = null;
@@ -26,13 +27,12 @@ export default function StopWatch() {
             clearInterval(interval);
         }
 
-        return () => {
-            if (interval) clearInterval(interval);
-        };
+        return () => interval && clearInterval(interval);
     }, [running]);
 
     /**
-     * Formats the time into hours, minutes, seconds, and milliseconds.
+     * Formats the time in milliseconds into a readable format (hh:mm:ss).
+     * @returns Formatted time string.
      */
     const formatTime = () => {
         const hours = Math.floor(milliseconds / 3600000);
@@ -50,7 +50,7 @@ export default function StopWatch() {
     };
 
     /**
-     * Records the current lap time.
+     * Records the current lap time when the stopwatch is running.
      */
     const recordLap = () => {
         if (running) {
@@ -59,7 +59,7 @@ export default function StopWatch() {
     };
 
     /**
-     * Resets the stopwatch, clearing the time and laps.
+     * Resets the stopwatch, clearing both the elapsed time and recorded laps.
      */
     const reset = () => {
         setRunning(false);
@@ -92,4 +92,3 @@ export default function StopWatch() {
         </div>
     );
 }
-
