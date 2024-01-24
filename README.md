@@ -37,10 +37,12 @@ The app features a simple yet elegant user interface, balancing aesthetic appeal
 
 ![Stopwatch Interface](./images/stopwatchInterface.png)
 
+
 ## Demonstration Video
 Experience the app's functionality firsthand through this demonstration video:
 
-[![Watch the video](./video_demo/thumbnail.png)](./video_demo/demo.mp4)
+https://github.com/EDHE08232001/InternAssessmentSolution/assets/80665238/bde18c12-814e-4319-85c6-a28ec85829c7
+
 
 ## Getting Started
 To start exploring this project, clone the repository and install dependencies with `npm install`. Launch the app with `npm start` and experience a harmonious blend of modern technology and design.
